@@ -77,4 +77,25 @@ public class ScoreCardServiceImpl implements ScoreCardService {
     public void deleteScoreCardById(long id) {
         scoreCardRepository.deleteById(id);
     }
+
+
+
+    @Override
+    public List<ScoreCard> getByCustomFilter(String scorecard, String scorecardCategory, String metric, String breakout,
+                                             String category, String reportingFrequency, String metricFormat, String statusCalculation,
+                                             Float rangeTolerance, String monthYear, Float targetValue, Float forecastValue, Float actualValue,
+                                             Float actualNumerator, Float actualDenominator, String comments, String linkToRca, Float redStatusLimit,
+                                             String status) {
+        List<ScoreCard> byCustomFilter = scoreCardRepository.getByCustomFilter(scorecard, scorecardCategory, metric, breakout, category, reportingFrequency,
+                metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
+                comments, linkToRca, redStatusLimit, status);
+        return scoreCardRepository.getByCustomFilter(scorecard, scorecardCategory, metric, breakout, category, reportingFrequency,
+                metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
+                comments, linkToRca, redStatusLimit, status);
+    }
+
+    /*@Override
+    public List<ScoreCard> getByCustomFilter(String status) {
+        return scoreCardRepository.filterByCustomParameters(status);
+    }*/
 }

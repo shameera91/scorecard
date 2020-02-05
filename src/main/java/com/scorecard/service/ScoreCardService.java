@@ -19,4 +19,11 @@ public interface ScoreCardService {
     List<ScoreCard> getAllScoreCards();
 
     void deleteScoreCardById(long id);
+
+    List<ScoreCard> getByCustomFilter(String scorecard, String scorecardCategory, String metric, String breakout, String category,
+                           String reportingFrequency, String metricFormat, String statusCalculation, Float rangeTolerance,
+                           String monthYear, Float targetValue, Float forecastValue, Float actualValue, Float actualNumerator,
+                           Float actualDenominator, String comments, String linkToRca, Float redStatusLimit, String status);
+
+    //List<ScoreCard> getByCustomFilter(String status);
 }
