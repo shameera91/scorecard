@@ -63,14 +63,12 @@ public class ScoreCardServiceImpl implements ScoreCardService {
 
     @Override
     public ScoreCard getScoreCardById(long id) {
-        ScoreCard result = scoreCardRepository.findById(id).get();
-        return result;
+        return scoreCardRepository.findById(id).get();
     }
 
     @Override
     public List<ScoreCard> getAllScoreCards() {
-        List<ScoreCard> allData = scoreCardRepository.findAll();
-        return allData;
+        return scoreCardRepository.findAll();
     }
 
     @Override
@@ -79,23 +77,16 @@ public class ScoreCardServiceImpl implements ScoreCardService {
     }
 
 
-
     @Override
     public List<ScoreCard> getByCustomFilter(String scorecard, String scorecardCategory, String metric, String breakout,
                                              String category, String reportingFrequency, String metricFormat, String statusCalculation,
                                              Float rangeTolerance, String monthYear, Float targetValue, Float forecastValue, Float actualValue,
                                              Float actualNumerator, Float actualDenominator, String comments, String linkToRca, Float redStatusLimit,
                                              String status) {
-        List<ScoreCard> byCustomFilter = scoreCardRepository.getByCustomFilter(scorecard, scorecardCategory, metric, breakout, category, reportingFrequency,
-                metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
-                comments, linkToRca, redStatusLimit, status);
+
         return scoreCardRepository.getByCustomFilter(scorecard, scorecardCategory, metric, breakout, category, reportingFrequency,
                 metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
                 comments, linkToRca, redStatusLimit, status);
     }
 
-    /*@Override
-    public List<ScoreCard> getByCustomFilter(String status) {
-        return scoreCardRepository.filterByCustomParameters(status);
-    }*/
 }

@@ -25,5 +25,4 @@ public interface ScoreCardService {
                            String monthYear, Float targetValue, Float forecastValue, Float actualValue, Float actualNumerator,
                            Float actualDenominator, String comments, String linkToRca, Float redStatusLimit, String status);
 
-    //List<ScoreCard> getByCustomFilter(String status);
 }
