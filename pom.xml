@@ -18,12 +18,12 @@
         <java.version>11</java.version>
     </properties>
 
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>com.ibm.db2.jcc</id>
             <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <dependencies>
         <dependency>
@@ -35,11 +35,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.ibm.db2.jcc/db2jcc -->
         <dependency>
+            <groupId>com.ibm.db2.jcc</groupId>
+            <artifactId>db2jcc</artifactId>
+            <version>db2jcc4</version>
+        </dependency>
+
+
+        <!--<dependency>
             <groupId>com.ibm.db2.jcc</groupId>
             <artifactId>db2jcc4</artifactId>
             <version>10.1</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.h2database</groupId>
