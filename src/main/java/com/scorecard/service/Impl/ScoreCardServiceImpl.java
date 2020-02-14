@@ -6,6 +6,7 @@ import com.scorecard.repository.ScoreCardRepository;
 import com.scorecard.service.ScoreCardService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,25 @@ public class ScoreCardServiceImpl implements ScoreCardService {
                 .linkToRca(input.getLinkToRca()).redStatusLimit(input.getRedStatusLimit()).status(input.getStatus())
                 .dateUploaded(input.getDateUploaded()).build();
         return scoreCardRepository.save(saveTo);
+    }
+
+    @Override
+    public List<ScoreCard> saveScoreCardListData(List<ScoreCardInputDTO> scoreCardInputDTO) {
+        List<ScoreCard> resultList = new ArrayList<>();
+        scoreCardInputDTO.stream().forEach(s -> {
+            ScoreCard input = ScoreCard.builder().scorecard(s.getScorecard()).scorecardCategory(s.getScorecardCategory())
+                    .metric(s.getMetric()).breakout(s.getBreakout()).category(s.getCategory())
+                    .reportingFrequency(s.getReportingFrequency()).metricFormat(s.getMetricFormat())
+                    .statusCalculation(s.getStatusCalculation()).rangeTolerance(s.getRangeTolerance())
+                    .monthYear(s.getMonthYear()).targetValue(s.getTargetValue()).forecastValue(s.getForecastValue())
+                    .actualValue(s.getActualValue()).actualNumerator(s.getActualNumerator())
+                    .actualDenominator(s.getActualDenominator()).comments(s.getComments())
+                    .linkToRca(s.getLinkToRca()).redStatusLimit(s.getRedStatusLimit()).status(s.getStatus())
+                    .dateUploaded(s.getDateUploaded()).build();
+            resultList.add(input);
+        });
+
+        return scoreCardRepository.saveAll(resultList);
     }
 
     @Override

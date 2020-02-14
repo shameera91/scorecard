@@ -35,6 +35,11 @@ public class ScoreCardController {
         return ResponseEntity.ok(scoreCardService.saveScoreCard(scoreCardInputDTO));
     }
 
+    @PostMapping("/save-all")
+    public ResponseEntity<List<ScoreCard>> saveScoreCardListData(@RequestBody List<ScoreCardInputDTO> scoreCardInputDTO) {
+        return ResponseEntity.ok(scoreCardService.saveScoreCardListData(scoreCardInputDTO));
+    }
+
     @PatchMapping("/update/{id}")
     public ResponseEntity<Void> updateScorecard(@RequestBody ScoreCardInputDTO scoreCardInputDTO, @PathVariable long id) {
         scoreCardService.updateScoreCard(scoreCardInputDTO, id);

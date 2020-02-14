@@ -12,6 +12,8 @@ public interface ScoreCardService {
 
     ScoreCard saveScoreCard(ScoreCardInputDTO scoreCardInputDTO);
 
+    List<ScoreCard> saveScoreCardListData(List<ScoreCardInputDTO> scoreCardInputDTO);
+
     void updateScoreCard(ScoreCardInputDTO scoreCardInputDTO,long id);
 
     ScoreCard getScoreCardById(long id);
