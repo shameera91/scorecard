@@ -22,4 +22,6 @@ public interface ScoreCardRepository extends JpaRepository<ScoreCard,Long> {
                                       String reportingFrequency, String metricFormat, String statusCalculation, Float rangeTolerance,
                                       String monthYear, Float targetValue, Float forecastValue, Float actualValue, Float actualNumerator,
                                       Float actualDenominator, String comments, String linkToRca, Float redStatusLimit, String status);
+
+    List<ScoreCard> getByMonthYearIn(List<String> monthYear);
 }

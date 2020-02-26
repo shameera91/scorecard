@@ -38,7 +38,7 @@ public class ScoreCard {
     private String metricFormat;
     private String statusCalculation;
     private float rangeTolerance;
-    private String monthYear;
+    private String monthYear;  /*Mar-2020*/
     private float targetValue;
     private float forecastValue;
     private float actualValue;

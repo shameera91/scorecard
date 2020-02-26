@@ -51,6 +51,11 @@ public class ScoreCardController {
         return ResponseEntity.ok(scoreCardService.getAllScoreCards());
     }
 
+    @GetMapping("/get-by-range")
+    public ResponseEntity<List<ScoreCard>> getAllScoreCardsByYearmonth(@RequestParam Integer range) {
+        return ResponseEntity.ok(scoreCardService.getAllScoreCardsByYearmonth(range));
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteScorecardById(@PathVariable long id) {
         scoreCardService.deleteScoreCardById(id);

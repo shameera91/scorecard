@@ -4,8 +4,11 @@ import com.scorecard.dto.ScoreCardInputDTO;
 import com.scorecard.modal.ScoreCard;
 import com.scorecard.repository.ScoreCardRepository;
 import com.scorecard.service.ScoreCardService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +92,21 @@ public class ScoreCardServiceImpl implements ScoreCardService {
     @Override
     public List<ScoreCard> getAllScoreCards() {
         return scoreCardRepository.findAll();
+    }
+
+    @Override
+    public List<ScoreCard> getAllScoreCardsByYearmonth(Integer range) {
+        int currentYear = LocalDate.now().getYear();
+        List<String> monthYearList = new ArrayList<>();
+        for(int i=0;i<range;i++){
+            String currentMonth = LocalDate.now().minusMonths(i).getMonth().toString().substring(0,3);
+            currentMonth = currentMonth.toUpperCase().charAt(0) +  currentMonth.toLowerCase().substring(1);
+            if(currentMonth.equals("Dec") && (i != 0)){
+                currentYear = LocalDate.now().minusYears(1).getYear();
+            }
+            monthYearList.add(currentMonth+"-"+currentYear);
+        }
+        return scoreCardRepository.getByMonthYearIn(monthYearList);
     }
 
     @Override

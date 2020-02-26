@@ -20,6 +20,8 @@ public interface ScoreCardService {
 
     List<ScoreCard> getAllScoreCards();
 
+    List<ScoreCard> getAllScoreCardsByYearmonth(Integer range);
+
     void deleteScoreCardById(long id);
 
     List<ScoreCard> getByCustomFilter(String scorecard, String scorecardCategory, String metric, String breakout, String category,
