@@ -2,6 +2,7 @@ package com.scorecard.service;
 
 import com.scorecard.dto.ScoreCardInputDTO;
 import com.scorecard.modal.ScoreCard;
+import com.scorecard.modal.TestTable;
 
 import java.util.List;
 
@@ -28,5 +29,7 @@ public interface ScoreCardService {
                            String reportingFrequency, String metricFormat, String statusCalculation, Float rangeTolerance,
                            String monthYear, Float targetValue, Float forecastValue, Float actualValue, Float actualNumerator,
                            Float actualDenominator, String comments, String linkToRca, Float redStatusLimit, String status);
+
+    List<TestTable> getAllData();
 
 }

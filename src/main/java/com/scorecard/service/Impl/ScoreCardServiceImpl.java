@@ -2,13 +2,13 @@ package com.scorecard.service.Impl;
 
 import com.scorecard.dto.ScoreCardInputDTO;
 import com.scorecard.modal.ScoreCard;
+import com.scorecard.modal.TestTable;
 import com.scorecard.repository.ScoreCardRepository;
+import com.scorecard.repository.TestTableRepository;
 import com.scorecard.service.ScoreCardService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,9 +19,11 @@ import java.util.List;
 public class ScoreCardServiceImpl implements ScoreCardService {
 
     private final ScoreCardRepository scoreCardRepository;
+    private final TestTableRepository testTableRepository;
 
-    public ScoreCardServiceImpl(ScoreCardRepository scoreCardRepository) {
+    public ScoreCardServiceImpl(ScoreCardRepository scoreCardRepository, TestTableRepository testTableRepository) {
         this.scoreCardRepository = scoreCardRepository;
+        this.testTableRepository = testTableRepository;
     }
 
     @Override
@@ -126,5 +128,10 @@ public class ScoreCardServiceImpl implements ScoreCardService {
                 metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
                 comments, linkToRca, redStatusLimit, status);
     }
+
+	@Override
+    public List<TestTable> getAllData() {
+        return testTableRepository.findAll();
+	}
 
 }

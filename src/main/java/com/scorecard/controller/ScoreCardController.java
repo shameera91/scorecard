@@ -2,6 +2,7 @@ package com.scorecard.controller;
 
 import com.scorecard.dto.ScoreCardInputDTO;
 import com.scorecard.modal.ScoreCard;
+import com.scorecard.modal.TestTable;
 import com.scorecard.service.ScoreCardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -92,6 +93,11 @@ public class ScoreCardController {
         return ResponseEntity.ok(scoreCardService.getByCustomFilter(scorecard, scorecardCategory, metric, breakout, category, reportingFrequency,
                 metricFormat, statusCalculation, rangeTolerance, monthYear, targetValue, forecastValue, actualValue, actualNumerator, actualDenominator,
                 comments, linkToRca, redStatusLimit, status));
+    }
+
+    @GetMapping("/get-all/test-table")
+    public ResponseEntity<List<TestTable>> getAllData(){
+        return ResponseEntity.ok(scoreCardService.getAllData());
     }
 
 }
