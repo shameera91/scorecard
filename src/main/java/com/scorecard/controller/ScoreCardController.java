@@ -58,8 +58,8 @@ public class ScoreCardController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteScorecardById(@PathVariable long id) {
-        scoreCardService.deleteScoreCardById(id);
+    public ResponseEntity<Void> deleteScorecardById(@PathVariable List<Long> id) {
+        scoreCardService.deleteScoreCardByIds(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

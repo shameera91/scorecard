@@ -23,7 +23,7 @@ public interface ScoreCardService {
 
     List<ScoreCard> getAllScoreCardsByYearmonth(Integer range);
 
-    void deleteScoreCardById(long id);
+    void deleteScoreCardByIds(List<Long> id);
 
     List<ScoreCard> getByCustomFilter(String scorecard, String scorecardCategory, String metric, String breakout, String category,
                            String reportingFrequency, String metricFormat, String statusCalculation, Float rangeTolerance,

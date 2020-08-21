@@ -112,8 +112,8 @@ public class ScoreCardServiceImpl implements ScoreCardService {
     }
 
     @Override
-    public void deleteScoreCardById(long id) {
-        scoreCardRepository.deleteById(id);
+    public void deleteScoreCardByIds(List<Long> id) {
+        scoreCardRepository.deleteByIdIn(id);
     }
 
 

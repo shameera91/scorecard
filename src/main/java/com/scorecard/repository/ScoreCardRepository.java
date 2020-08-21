@@ -24,4 +24,6 @@ public interface ScoreCardRepository extends JpaRepository<ScoreCard,Long> {
                                       Float actualDenominator, String comments, String linkToRca, Float redStatusLimit, String status);
 
     List<ScoreCard> getByMonthYearIn(List<String> monthYear);
+
+    void deleteByIdIn(List<Long> ids);
 }
