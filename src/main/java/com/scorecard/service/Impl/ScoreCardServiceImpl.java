@@ -8,6 +8,7 @@ import com.scorecard.repository.TestTableRepository;
 import com.scorecard.service.ScoreCardService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +113,7 @@ public class ScoreCardServiceImpl implements ScoreCardService {
     }
 
     @Override
+    @Transactional
     public void deleteScoreCardByIds(List<Long> id) {
         scoreCardRepository.deleteByIdIn(id);
     }

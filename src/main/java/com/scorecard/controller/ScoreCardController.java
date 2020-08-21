@@ -57,9 +57,9 @@ public class ScoreCardController {
         return ResponseEntity.ok(scoreCardService.getAllScoreCardsByYearmonth(range));
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteScorecardById(@PathVariable List<Long> id) {
-        scoreCardService.deleteScoreCardByIds(id);
+    @DeleteMapping
+    public ResponseEntity<Void> deleteScorecardById(@RequestParam List<Long> ids) {
+        scoreCardService.deleteScoreCardByIds(ids);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

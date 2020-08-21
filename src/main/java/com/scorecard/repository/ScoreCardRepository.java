@@ -2,6 +2,7 @@ package com.scorecard.repository;
 
 import com.scorecard.modal.ScoreCard;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -25,5 +26,6 @@ public interface ScoreCardRepository extends JpaRepository<ScoreCard,Long> {
 
     List<ScoreCard> getByMonthYearIn(List<String> monthYear);
 
+    @Modifying
     void deleteByIdIn(List<Long> ids);
 }
