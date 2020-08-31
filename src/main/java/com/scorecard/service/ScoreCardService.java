@@ -32,4 +32,6 @@ public interface ScoreCardService {
 
     List<TestTable> getAllData();
 
+    void updateAllScoreCards(List<ScoreCardInputDTO> scoreCardInputDTO);
+
 }

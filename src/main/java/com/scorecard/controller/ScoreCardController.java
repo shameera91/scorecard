@@ -47,6 +47,12 @@ public class ScoreCardController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PatchMapping("/update-all")
+    public ResponseEntity<Void> updateAllScorecards(@RequestBody List<ScoreCardInputDTO> scoreCardInputDTOs) {
+        scoreCardService.updateAllScoreCards(scoreCardInputDTOs);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @GetMapping("/get-all")
     public ResponseEntity<List<ScoreCard>> getAllScoreCards() {
         return ResponseEntity.ok(scoreCardService.getAllScoreCards());

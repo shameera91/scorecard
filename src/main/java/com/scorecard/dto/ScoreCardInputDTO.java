@@ -12,6 +12,7 @@ import java.util.Date;
 @Setter
 public class ScoreCardInputDTO {
 
+    private long id;
     private String scorecard;
     private String scorecardCategory;
     private String metric;

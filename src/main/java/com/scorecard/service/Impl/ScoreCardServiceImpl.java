@@ -136,4 +136,11 @@ public class ScoreCardServiceImpl implements ScoreCardService {
         return testTableRepository.findAll();
 	}
 
+	@Override
+    public void updateAllScoreCards(List<ScoreCardInputDTO> scoreCardInputDTOs) {
+		for (ScoreCardInputDTO inputDTO:scoreCardInputDTOs){
+            updateScoreCard(inputDTO,inputDTO.getId());
+        }
+	}
+
 }
